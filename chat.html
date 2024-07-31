@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Chat</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<style>
+   
+</style>
+<link rel="stylesheet" href="css/global.css">
+<link rel="stylesheet" href="css/chat.css">
+<script src="js/check_isloggedin.js"></script>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="user_list.html">Menu</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="user_list.html">User List</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="documents.html">Documents</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="chat.html">Chat</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="javascript:localStorage.removeItem('loggedInUser');window.location.href='index.html';">Logout</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="chat-container">
+        <div class="container">
+            <div class="row" style="margin-top: -80px; ">
+                <div class="col-md-12">
+                    <h1 class="text-center">Chat</h1>
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="chat-messages" id="chat-messages" style="overflow-y: scroll; max-height: 400px; margin-bottom: 10px;">
+                                <div style="margin-top: 10000px;"></div>
+                            </div>
+                            <script>
+                                document.getElementById('chat-messages').scrollTop = document.getElementById('chat-messages').scrollHeight;
+                            </script>
+                            
+                            <div class="d-flex align-items-center">
+                                <div class="flex-grow-1 mr-2">
+                            <div class="chat-input row">
+                                <div class="col-md-1 text-center">
+                                        <span id="loggedInUser" class="mt-1"></span>
+                                    <script>
+                                        let user = JSON.parse(localStorage.getItem('loggedInUser'));
+                                        document.getElementById('loggedInUser').textContent = user.name;
+                                    </script>
+                                </div>
+                                <div class="input-group col-md-9">
+                                    <input type="text" class="form-control" id="chat-input" placeholder="Type your message here..."/>
+                                </div>
+                                <div class="col-md-1">
+                                    <button class="btn btn-primary" onclick="sendChatMessage()">Send</button>
+                                </div>
+                                <div class="flex-shrink-0">
+                                <!-- <div class="row">
+                                    <div class="col-md-12 text-center mt-2">
+                                        <button class="btn btn-primary btn-lg btn-block" onclick="sendChatMessage()">Send</button>
+                                    </div>
+                                </div> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/chat.js"></script>
+</body>
+</html>
