@@ -15,11 +15,11 @@ let navbar = `<nav class="navbar navbar-expand-lg navbar-light bg-light">
 let currentPage = window.location.href.split("/").pop().split(".")[0];
 if (currentPage == "chat") {
     navbar = navbar.replace('<a class="nav-link" href="chat.html">Chat</a>', '<a class="nav-link active" href="chat.html">Chat</a>');
-}  else if (currentPage == "documents") {
+} else if (currentPage == "documents") {
     navbar = navbar.replace('<a class="nav-link" href="documents.html">Documents</a>', '<a class="nav-link active" href="documents.html">Documents</a>');
-}else if (currentPage == "user_list") {
+} else if (currentPage == "user_list") {
     navbar = navbar.replace('<a class="nav-link" href="user_list.html">User List</a>', '<a class="nav-link active" href="user_list.html">User List</a>');
-} else{
+} else {
     navbar = navbar.replace(`<a class="nav-link" href="${currentPage}.html">${currentPage}</a>`, `<a class="nav-link active" href="${currentPage}.html">${currentPage}</a>`);
 }
 document.write(navbar);
