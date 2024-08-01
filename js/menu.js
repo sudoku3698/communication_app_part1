@@ -9,6 +9,10 @@ let navbar = `<nav class="navbar navbar-expand-lg navbar-light bg-light">
                     <li class="nav-item"><a class="nav-link" href="user_list.html">User List</a></li>
                     <li class="nav-item"><a class="nav-link" href="documents.html">Documents</a></li>
                     <li class="nav-item"><a class="nav-link" href="chat.html">Chat</a></li>
+                    <li class="nav-item">
+                    <a class="nav-link"
+                        href="javascript:localStorage.removeItem('loggedInUser');window.location.href='index.html';">Logout</a>
+                    </li>
                 </ul>
             </div>
         </nav>`;
